@@ -4,6 +4,7 @@ import useSound from 'use-sound';
 import './suguru-puzzlepal.scss';
 import './suguru-default.scss';
 import Bottom from "./Bottom";
+import useKey from "@rooks/use-key";
 
 interface Props {
   size: number[];
@@ -117,6 +118,14 @@ const Suguru = (props: Props) => {
       document.body.removeEventListener('click', resetSelection);
     }
   }, []);
+
+  useKey(["1", "2", "3", "4", "5", "6", "7", "8", "9"], (a) => {
+    if (activeCell === undefined) return;
+    const number = a.key as unknown as number;
+    if (number <= maxNumber) {
+      handleNumberChanged(activeCell, number);
+    }
+  })
 
   const style = { 
     '--columns': size[0],
