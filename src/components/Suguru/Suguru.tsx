@@ -22,7 +22,7 @@ const Suguru = (props: Props) => {
   const [checking, setChecking] = useState(false);
 
   const [playOpen] = useSound(`${process.env.PUBLIC_URL}/sound/open.mp3`);
-  const [ playClosed] = useSound(`${process.env.PUBLIC_URL}/sound/close.mp3`);
+  const [playClosed] = useSound(`${process.env.PUBLIC_URL}/sound/close.mp3`);
   
   useEffect(() => {
     setCellValues(startSituation);

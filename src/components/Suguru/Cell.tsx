@@ -48,7 +48,6 @@ const Cell = (props: PropsWithChildren<Props>) => {
     onClick?.();
     e.stopPropagation();
   }
-console.log(readOnly)
   return (
     <li
       className={className}

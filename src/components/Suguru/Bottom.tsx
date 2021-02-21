@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import useSound from "use-sound";
+
 interface Props {
   checking: boolean;
   wrongCount: number;
@@ -8,10 +11,19 @@ interface Props {
 }
 const Bottom = (props: Props) => {
   const { checking, wrongCount, onReset, onCheck, onOk } = props;
+  const [playWin] = useSound(`${process.env.PUBLIC_URL}/sound/tada.mp3`);
+
+  useEffect(() => {
+    if (checking && !wrongCount) {
+      playWin();
+    }
+  }, [checking, playWin, wrongCount]);
+
   if (checking) {
     return (
       <div className="bottom">
         {wrongCount > 0 && <div className="info">{wrongCount} fouten gemaakt :( </div>}
+        {wrongCount === 0 && <div className="info">Goed gedaan! </div>}
         <button className="ok" onClick={onOk}>Ok</button>
       </div>
     )
