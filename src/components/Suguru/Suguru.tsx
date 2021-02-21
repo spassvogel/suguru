@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cell from "./Cell";
 import useSound from 'use-sound';
 import './suguru-puzzlepal.scss';
@@ -6,7 +6,7 @@ import './suguru-default.scss';
 import Bottom from "./Bottom";
 
 interface Props {
-  size: [number, number];
+  size: number[];
   startSituation: (number|undefined)[];
   groups: number[];
   solution: number[];
@@ -24,6 +24,10 @@ const Suguru = (props: Props) => {
   const [playOpen] = useSound(`${process.env.PUBLIC_URL}/sound/open.mp3`);
   const [ playClosed] = useSound(`${process.env.PUBLIC_URL}/sound/close.mp3`);
   
+  useEffect(() => {
+    setCellValues(startSituation);
+  }, [startSituation]);
+
   const handleReset = () => {
     playClosed();
     // eslint-disable-next-line no-restricted-globals
@@ -42,7 +46,6 @@ const Suguru = (props: Props) => {
 
   const handleCellClick = (index: number) => {
     if (checking) return;
-
     if (index === activeCell) {
       setActiveCell(undefined)
     } else {
@@ -88,7 +91,7 @@ const Suguru = (props: Props) => {
         key={i}
         selected={selected}
         markAsWrong={wrong}
-        readOnly={startSituation[i] !== undefined}
+        readOnly={!!startSituation[i]}
         group={groups[i]}
         maxNumber={maxNumber}
         leftBorder={leftEdge || otherGroupOnTheLeft}
@@ -99,7 +102,7 @@ const Suguru = (props: Props) => {
         onClick={() => handleCellClick(i)}
         onNumberChanged={(value) => handleNumberChanged(i, value)}
       >
-        {cellValues[i]}
+        {!!cellValues[i] && cellValues[i]}
       </Cell>
     );
   }
@@ -119,6 +122,7 @@ const Suguru = (props: Props) => {
     '--columns': size[0],
     '--rows': size[1],
   } as React.CSSProperties;
+
   return (
     <div className="suguru">
       <ul className="game" style={style}>
