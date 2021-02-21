@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Cell from "./Cell";
 import useSound from 'use-sound';
 import './suguru-puzzlepal.scss';
 import './suguru-default.scss';
 import Bottom from "./Bottom";
-import openSound from '../../sound/open.mp3';
-import closeSound from '../../sound/close.mp3';
 
 interface Props {
   size: [number, number];
@@ -23,8 +21,8 @@ const Suguru = (props: Props) => {
   const [activeCell, setActiveCell] = useState<number>();
   const [checking, setChecking] = useState(false);
 
-  const [playOpen] = useSound(openSound);
-  const [ playClosed] = useSound(closeSound);
+  const [playOpen] = useSound(`${process.env.PUBLIC_URL}/sound/open.mp3`);
+  const [ playClosed] = useSound(`${process.env.PUBLIC_URL}/sound/close.mp3`);
   
   const handleReset = () => {
     playClosed();
