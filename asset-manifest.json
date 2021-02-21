@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "./suguru/static/css/main.e53ef957.chunk.css",
-    "main.js": "./suguru/static/js/main.ff9a591b.chunk.js",
-    "main.js.map": "./suguru/static/js/main.ff9a591b.chunk.js.map",
-    "runtime-main.js": "./suguru/static/js/runtime-main.cecd50cf.js",
-    "runtime-main.js.map": "./suguru/static/js/runtime-main.cecd50cf.js.map",
-    "static/js/2.7063ca4b.chunk.js": "./suguru/static/js/2.7063ca4b.chunk.js",
-    "static/js/2.7063ca4b.chunk.js.map": "./suguru/static/js/2.7063ca4b.chunk.js.map",
-    "static/js/3.01f6eed9.chunk.js": "./suguru/static/js/3.01f6eed9.chunk.js",
-    "static/js/3.01f6eed9.chunk.js.map": "./suguru/static/js/3.01f6eed9.chunk.js.map",
-    "static/js/4.5fbb81b4.chunk.js": "./suguru/static/js/4.5fbb81b4.chunk.js",
-    "static/js/4.5fbb81b4.chunk.js.map": "./suguru/static/js/4.5fbb81b4.chunk.js.map",
-    "index.html": "./suguru/index.html",
-    "static/css/main.e53ef957.chunk.css.map": "./suguru/static/css/main.e53ef957.chunk.css.map",
-    "static/js/2.7063ca4b.chunk.js.LICENSE.txt": "./suguru/static/js/2.7063ca4b.chunk.js.LICENSE.txt",
-    "static/js/3.01f6eed9.chunk.js.LICENSE.txt": "./suguru/static/js/3.01f6eed9.chunk.js.LICENSE.txt",
-    "static/media/wrong.ba77eaf8.svg": "./suguru/static/media/wrong.ba77eaf8.svg"
+    "main.css": "/suguru/static/css/main.e53ef957.chunk.css",
+    "main.js": "/suguru/static/js/main.87b2adbd.chunk.js",
+    "main.js.map": "/suguru/static/js/main.87b2adbd.chunk.js.map",
+    "runtime-main.js": "/suguru/static/js/runtime-main.34772a57.js",
+    "runtime-main.js.map": "/suguru/static/js/runtime-main.34772a57.js.map",
+    "static/js/2.7063ca4b.chunk.js": "/suguru/static/js/2.7063ca4b.chunk.js",
+    "static/js/2.7063ca4b.chunk.js.map": "/suguru/static/js/2.7063ca4b.chunk.js.map",
+    "static/js/3.01f6eed9.chunk.js": "/suguru/static/js/3.01f6eed9.chunk.js",
+    "static/js/3.01f6eed9.chunk.js.map": "/suguru/static/js/3.01f6eed9.chunk.js.map",
+    "static/js/4.5fbb81b4.chunk.js": "/suguru/static/js/4.5fbb81b4.chunk.js",
+    "static/js/4.5fbb81b4.chunk.js.map": "/suguru/static/js/4.5fbb81b4.chunk.js.map",
+    "index.html": "/suguru/index.html",
+    "static/css/main.e53ef957.chunk.css.map": "/suguru/static/css/main.e53ef957.chunk.css.map",
+    "static/js/2.7063ca4b.chunk.js.LICENSE.txt": "/suguru/static/js/2.7063ca4b.chunk.js.LICENSE.txt",
+    "static/js/3.01f6eed9.chunk.js.LICENSE.txt": "/suguru/static/js/3.01f6eed9.chunk.js.LICENSE.txt",
+    "static/media/wrong.ba77eaf8.svg": "/suguru/static/media/wrong.ba77eaf8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.cecd50cf.js",
+    "static/js/runtime-main.34772a57.js",
     "static/js/2.7063ca4b.chunk.js",
     "static/css/main.e53ef957.chunk.css",
-    "static/js/main.ff9a591b.chunk.js"
+    "static/js/main.87b2adbd.chunk.js"
   ]
 }
