@@ -11,7 +11,7 @@ const Bottom = (props: Props) => {
   if (checking) {
     return (
       <div className="bottom">
-        {wrongCount > 0 && <div className="mistakes">{wrongCount} fouten gemaakt :( </div>}
+        {wrongCount > 0 && <div className="info">{wrongCount} fouten gemaakt :( </div>}
         <button className="ok" onClick={onOk}>Ok</button>
       </div>
     )
