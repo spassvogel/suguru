@@ -9,6 +9,7 @@ const App = () => {
   const [gameIndex, setGameIndex] = useState(0)
   const gameRef = useRef<HTMLDivElement>(null);
   const resizerRef = useRef<HTMLDivElement>(null);
+  const [helpPage, setHelpPage] = useState<number>();
 
   useLayoutEffect(() => {
     // If the game is wider than the viewport, resize down
@@ -29,6 +30,9 @@ const App = () => {
       setGameIndex(gameIndex + 1);
     }
   }
+  const handleOpenHelp = () => {
+    setHelpPage(0);
+  }
 
   return (
     <div className="app theme-puzzlepal">
@@ -37,11 +41,17 @@ const App = () => {
           Suguru, by Wouter
         </p>
         <GameSelector selectedIndex={gameIndex} onIndexChange={setGameIndex}/>
-        <Suguru
-          ref={gameRef}
-          {...games[gameIndex]}
-          onNext={handleNext}
-        />
+        <div style={{ display: helpPage === undefined ? "block" : "none" }}>
+          <Suguru
+            ref={gameRef}
+            {...games[gameIndex]}
+            onNext={handleNext}
+            onHelp={handleOpenHelp}
+          />
+        </div>
+        { helpPage !== undefined && (
+          <Help page={helpPage} />
+        )}
       </div>
     </div>
   );

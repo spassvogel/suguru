@@ -13,11 +13,12 @@ interface Props {
   solution: number[];
   maxNumber: number;
 
+  onHelp: () => void; 
   onNext: () => void; 
 }
 
 const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { size, groups, maxNumber, startSituation, solution, onNext } = props;
+  const { size, groups, maxNumber, startSituation, solution, onNext, onHelp } = props;
   const total = size[0] * size[1];
 
   const [cellValues, setCellValues] = useState(startSituation)
@@ -144,10 +145,9 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   return (
     <div className="suguru" ref={ref}>
-      <ul className="game" style={style}>
-        {cells}
-      </ul>
+      
       <Bottom 
+        onHelp={onHelp}
         onReset={handleReset}
         onCheck={handleCheck}
         onBack={handleOk}
