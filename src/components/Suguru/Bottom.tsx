@@ -14,10 +14,12 @@ interface Props {
 const Bottom = (props: Props) => {
   const { checking, wrongCount, onReset, onCheck, onBack, onNext, onHelp } = props;
   const [playWin] = useSound(`${process.env.PUBLIC_URL}/sound/tada.mp3`);
+  const [playPlop] = useSound(`${process.env.PUBLIC_URL}/sound/plop.mp3`);
 
   useEffect(() => {
-    if (checking && !wrongCount) {
-      playWin();
+    if (checking) {
+      if (!wrongCount) playWin();
+      else playPlop();
     }
   }, [checking, playWin, wrongCount]);
 
