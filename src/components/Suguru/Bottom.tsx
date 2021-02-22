@@ -26,7 +26,7 @@ const Bottom = (props: Props) => {
       <div className="bottom">
         {wrongCount > 0 && (
           <>
-            <div className="info">{wrongCount} fouten gemaakt :( </div>
+            <div className="info">{wrongCount} fouten gemaakt 😞  </div>
             <button className="ok" onClick={onBack}>Ok</button>
           </>
         )}
