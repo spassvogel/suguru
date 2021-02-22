@@ -49,7 +49,7 @@ const App = () => {
   return (
     <div className="app theme-puzzlepal">
       <div ref={resizerRef} className="layout">
-        <p>
+        <p className="title">
           Suguru, by Wouter
         </p>
         <div style={{ display: helpPage === undefined ? "block" : "none" }}>
