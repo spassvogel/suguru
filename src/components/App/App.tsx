@@ -23,6 +23,13 @@ const App = () => {
     }
   }, [gameIndex]);
 
+  const handleNext = () => {
+    // try to start next puzzle
+    if (gameIndex < games.length) {
+      setGameIndex(gameIndex + 1);
+    }
+  }
+
   return (
     <div className="app theme-puzzlepal">
       <div ref={resizerRef}>
@@ -33,6 +40,7 @@ const App = () => {
         <Suguru
           ref={gameRef}
           {...games[gameIndex]}
+          onNext={handleNext}
         />
       </div>
     </div>

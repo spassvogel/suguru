@@ -12,10 +12,12 @@ interface Props {
   groups: number[];
   solution: number[];
   maxNumber: number;
+
+  onNext: () => void; 
 }
 
 const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { size, groups, maxNumber, startSituation, solution } = props;
+  const { size, groups, maxNumber, startSituation, solution, onNext } = props;
   const total = size[0] * size[1];
 
   const [cellValues, setCellValues] = useState(startSituation)
@@ -26,6 +28,7 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const [playClosed] = useSound(`${process.env.PUBLIC_URL}/sound/close.mp3`);
   
   useEffect(() => {
+    setChecking(false);
     setCellValues(startSituation);
   }, [startSituation]);
 
@@ -42,7 +45,14 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
   }
 
   const handleOk = () => {
+    // "ok" button clicked after failed
     setChecking(false);
+  }
+
+  const handleNext = () => {
+    // "next" button clicked after win
+    setChecking(false);
+    onNext();
   }
 
   const handleCellClick = (index: number) => {
@@ -121,7 +131,7 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   useKey(["1", "2", "3", "4", "5", "6", "7", "8", "9"], (a) => {
     if (activeCell === undefined) return;
-    const number = a.key as unknown as number;
+    const number = parseInt(a.key);
     if (number <= maxNumber) {
       handleNumberChanged(activeCell, number);
     }
@@ -140,7 +150,8 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
       <Bottom 
         onReset={handleReset}
         onCheck={handleCheck}
-        onOk={handleOk}
+        onBack={handleOk}
+        onNext={handleNext}
         checking={checking}
         wrongCount={wrongCount}
       />

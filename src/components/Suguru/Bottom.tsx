@@ -7,10 +7,11 @@ interface Props {
 
   onReset: () => void;
   onCheck: () => void;
-  onOk: () => void;
+  onBack: () => void;
+  onNext: () => void;
 }
 const Bottom = (props: Props) => {
-  const { checking, wrongCount, onReset, onCheck, onOk } = props;
+  const { checking, wrongCount, onReset, onCheck, onBack, onNext } = props;
   const [playWin] = useSound(`${process.env.PUBLIC_URL}/sound/tada.mp3`);
 
   useEffect(() => {
@@ -22,9 +23,17 @@ const Bottom = (props: Props) => {
   if (checking) {
     return (
       <div className="bottom">
-        {wrongCount > 0 && <div className="info">{wrongCount} fouten gemaakt :( </div>}
-        {wrongCount === 0 && <div className="info">Goed gedaan! </div>}
-        <button className="ok" onClick={onOk}>Ok</button>
+        {wrongCount > 0 && (
+          <>
+            <div className="info">{wrongCount} fouten gemaakt :( </div>
+            <button className="ok" onClick={onBack}>Ok</button>
+          </>
+        )}
+        {wrongCount === 0 && (
+          <>
+            <div className="info">Goed gedaan! </div>
+            <button className="ok" onClick={onNext}>Volgende</button>
+          </>)}
       </div>
     )
   }
