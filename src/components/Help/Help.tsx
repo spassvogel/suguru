@@ -1,5 +1,6 @@
 import { Board } from "components/Suguru";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useSound from "use-sound";
 
 interface Props {
   page: number;
@@ -11,6 +12,8 @@ export const HELP_PAGE_COUNT = 3;
 
 const Help = (props: Props) => {
   const { page, onNext } = props;
+  const [playPlop] = useSound(`${process.env.PUBLIC_URL}/sound/plop.mp3`);
+
   const [activeCell, setActiveCell] = useState<number>();
   const [cellValues, setCellValues] = useState([1, 0, 2, 3, 5 ])
 
@@ -29,6 +32,10 @@ const Help = (props: Props) => {
       return v;
     }));
   }
+
+  useEffect(() => {
+    playPlop();
+  }, [page, playPlop]);
 
   switch (page) {
     case 0: {
