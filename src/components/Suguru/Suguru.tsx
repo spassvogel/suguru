@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import Cell from "./Cell";
 import useSound from 'use-sound';
 import './suguru-puzzlepal.scss';
@@ -14,7 +14,7 @@ interface Props {
   maxNumber: number;
 }
 
-const Suguru = (props: Props) => {
+const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { size, groups, maxNumber, startSituation, solution } = props;
   const total = size[0] * size[1];
 
@@ -133,7 +133,7 @@ const Suguru = (props: Props) => {
   } as React.CSSProperties;
 
   return (
-    <div className="suguru">
+    <div className="suguru" ref={ref}>
       <ul className="game" style={style}>
         {cells}
       </ul>
@@ -146,6 +146,6 @@ const Suguru = (props: Props) => {
       />
     </div>
   ) 
-}
+});
 
 export default Suguru;
