@@ -4,11 +4,11 @@ import Cell from "./Cell";
 interface Props {
   size: number[];
   cellValues: (number|undefined)[];
-  startSituation: (number|undefined)[];
+  startSituation?: (number|undefined)[];
   selectedCell?: number;
-  wrongCells: number[];
+  wrongCells?: number[];
   groups: number[];
-  maxNumber: number;
+  maxNumber?: number;
 
   onCellClick?: (index: number) => void
   onNumberChanged?: (index: number, value: number) => void
@@ -19,10 +19,10 @@ const Board = (props: Props) => {
     size,
     groups,
     selectedCell,
-    wrongCells,
-    maxNumber,
+    wrongCells  = [],
+    maxNumber = 1,
     cellValues,
-    startSituation,
+    startSituation = [],
 
     onCellClick,
     onNumberChanged
@@ -73,7 +73,7 @@ const Board = (props: Props) => {
   } as React.CSSProperties;
 
   return (
-    <ul className="game" style={style}>
+    <ul className="board" style={style}>
       {cells}
     </ul>
   )

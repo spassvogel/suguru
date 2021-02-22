@@ -5,6 +5,7 @@ import './app-puzzlepal.scss';
 import games from 'games/games.json';
 import GameSelector from './GameSelector';
 import Help from 'components/Help';
+import { HELP_PAGE_COUNT } from 'components/Help/Help';
 
 const App = () => {
   const [gameIndex, setGameIndex] = useState(0)
@@ -31,18 +32,28 @@ const App = () => {
       setGameIndex(gameIndex + 1);
     }
   }
+
   const handleOpenHelp = () => {
     setHelpPage(0);
   }
 
+  const handleHelpNext = () => {
+    setHelpPage(index => {
+      if (index === undefined || index === HELP_PAGE_COUNT) {
+        return undefined;
+      }
+      return index + 1
+    });
+  }
+
   return (
     <div className="app theme-puzzlepal">
-      <div ref={resizerRef}>
+      <div ref={resizerRef} className="layout">
         <p>
           Suguru, by Wouter
         </p>
-        <GameSelector selectedIndex={gameIndex} onIndexChange={setGameIndex}/>
         <div style={{ display: helpPage === undefined ? "block" : "none" }}>
+          <GameSelector selectedIndex={gameIndex} onIndexChange={setGameIndex}/>
           <Suguru
             ref={gameRef}
             {...games[gameIndex]}
@@ -51,7 +62,7 @@ const App = () => {
           />
         </div>
         { helpPage !== undefined && (
-          <Help page={helpPage} />
+          <Help page={helpPage} onNext={handleHelpNext} />
         )}
       </div>
     </div>

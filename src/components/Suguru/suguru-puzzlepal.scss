@@ -21,148 +21,147 @@ $ringSize: 48px;
 
 .theme-puzzlepal {
 
-  .suguru {
-    .game {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(var(--columns), 64px);
-      grid-template-rows: repeat(var(--rows), 64px);
-      grid-gap: 2px;
-      animation: pop-suguru 0.5s ease-in-out 1;
-    
-      li {
-        line-height: $cellSize;
+  .board {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 64px);
+    grid-template-rows: repeat(var(--rows), 64px);
+    grid-gap: 2px;
+    animation: pop-suguru 0.5s ease-in-out 1;
+  
+    li {
+      line-height: $cellSize;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    li.initial {
+      font-weight: 800;
+    }
+  
+    li .cell {
+      width: $cellSize;
+      height: $cellSize;
+      font-size: x-large;
+    }
+  
+    @each $group in $groupColors {
+      $j: index($groupColors, $group);
+      li.group-#{$j} .cell {
+        background-color: $group;
+      }
+    }
+  
+    li.top-edge.left-edge .cell{
+      border-top-left-radius: $borderRadius;
+    }
+  
+    li.top-edge.right-edge .cell {
+      border-top-right-radius: $borderRadius;
+    }
+  
+    li.bottom-edge.left-edge .cell {
+      border-bottom-left-radius: $borderRadius;
+    }
+  
+    li.bottom-edge.right-edge .cell {
+      border-bottom-right-radius: $borderRadius;
+    }
+  
+    li.selected {
+      z-index: 256;
+  
+      .selection {
+        position: absolute;
+        border: $ringSize solid rgba(255, 255, 255, .4);
+        left: calc(#{-50% * $selectionCircleModifier} + #{$cellSize / 2});
+        top: calc(#{-50% * $selectionCircleModifier} + #{$cellSize / 2});
+        width: $selectionCircleModifier * 100%;
+        height: $selectionCircleModifier * 100%;
+        border-radius: 50%;
         box-sizing: border-box;
-        position: relative;
-      }
-
-      li.initial {
-        font-weight: 800;
-      }
-    
-      li .cell {
-        width: $cellSize;
-        height: $cellSize;
-        font-size: x-large;
-      }
-    
-      @each $group in $groupColors {
-        $j: index($groupColors, $group);
-        li.group-#{$j} .cell {
-          background-color: $group;
-        }
-      }
-    
-      li.top-edge.left-edge .cell{
-        border-top-left-radius: $borderRadius;
-      }
-    
-      li.top-edge.right-edge .cell {
-        border-top-right-radius: $borderRadius;
-      }
-    
-      li.bottom-edge.left-edge .cell {
-        border-bottom-left-radius: $borderRadius;
-      }
-    
-      li.bottom-edge.right-edge .cell {
-        border-bottom-right-radius: $borderRadius;
-      }
-    
-      li.selected {
-        z-index: 256;
-    
-        .selection {
+        pointer-events: none;
+  
+        animation: pop-selection 0.25s ease-in-out 1;
+  
+  
+        .option {
           position: absolute;
-          border: $ringSize solid rgba(255, 255, 255, .4);
-          left: calc(#{-50% * $selectionCircleModifier} + #{$cellSize / 2});
-          top: calc(#{-50% * $selectionCircleModifier} + #{$cellSize / 2});
-          width: $selectionCircleModifier * 100%;
-          height: $selectionCircleModifier * 100%;
+          line-height: $ringSize;
+          width: $ringSize;
+          height: $ringSize;
+          background: white;
+          color: black;
           border-radius: 50%;
-          box-sizing: border-box;
-          pointer-events: none;
-    
-          animation: pop-selection 0.25s ease-in-out 1;
-    
-    
-          .option {
-            position: absolute;
-            line-height: $ringSize;
-            width: $ringSize;
-            height: $ringSize;
-            background: white;
-            color: black;
-            border-radius: 50%;
-            box-shadow: -1px 1px 0px 1px rgba(0, 0, 0, 0.25);
-            pointer-events: initial;
-    
-            margin-left: calc(50% - #{$ringSize/2}); // center
-            margin-top: calc(50% - #{$ringSize/2});  // center
-          }
-    
-          @for $i from 0 to 7 {
-            &.options-#{$i} {
-              @for $j from 0 to $i {
-                .option:nth-child(#{$j + 1}) {
-                  transform: rotate(calc(360deg / #{$i} * #{$j})) translateX(calc(72px)) rotate(calc(-360deg / #{$i} * #{$j}));
-                }
-              }   
-            }
+          box-shadow: -1px 1px 0px 1px rgba(0, 0, 0, 0.25);
+          pointer-events: initial;
+  
+          margin-left: calc(50% - #{$ringSize/2}); // center
+          margin-top: calc(50% - #{$ringSize/2});  // center
+        }
+  
+        @for $i from 0 to 7 {
+          &.options-#{$i} {
+            @for $j from 0 to $i {
+              .option:nth-child(#{$j + 1}) {
+                transform: rotate(calc(360deg / #{$i} * #{$j})) translateX(calc(72px)) rotate(calc(-360deg / #{$i} * #{$j}));
+              }
+            }   
           }
         }
-      }
-
-      li .wrong-marker {
-        position: absolute;
-
-        left: 0;
-        top: 0;
-        position: absolute;
-        margin: 6px;
       }
     }
 
-    .bottom {
-      height: 48px;
-      margin-top: 16px;
-      display: flex;
+    li .wrong-marker {
+      position: absolute;
 
-      button {
-        flex: 1;
-        height: 100%;
-        background: #00a6c6;
-        color: white;
-        font-weight: bold;
-        font-size: large;
-        padding: 0 14px;
-        border-radius: 4px;
-        border: 0;
-        border-bottom: 4px solid #00435b;
-      }
-
-      button.help {
-        flex: 0.5;
-      }
-
-      button.ok {
-        flex-grow: 0;
-      }
-
-      .info {
-        flex: 1;
-        text-align: left;
-        line-height: 48px;
-        font-size: 1.25rem;
-      }
-
-      button:not(:first-child) {
-        margin-left: 8px;
-      }
+      left: 0;
+      top: 0;
+      position: absolute;
+      margin: 6px;
     }
   }
+
+  .bottom {
+    height: 48px;
+    margin-top: 16px;
+    display: flex;
+
+    button {
+      flex: 1;
+      height: 100%;
+      background: #00a6c6;
+      color: white;
+      font-weight: bold;
+      font-size: large;
+      padding: 0 14px;
+      border-radius: 4px;
+      border: 0;
+      border-bottom: 4px solid #00435b;
+    }
+
+    button.help {
+      flex: 0.5;
+    }
+
+    button.ok {
+      flex-grow: 0;
+    }
+
+    .info {
+      flex: 1;
+      text-align: left;
+      line-height: 48px;
+      font-size: 1.25rem;
+    }
+
+    button:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+  
   
   @keyframes pop-suguru {
     0%  {transform: scale(0) rotate(-90deg)}
