@@ -2,12 +2,14 @@ interface Props {
   page: number;
 }
 
-const Help = () => {
+const Help = (props: Props) => {
+  const { page } = props;
   switch (page) {
     case 0: {
-      return 
+      return <div></div>
     }
   }
+  return <div></div>
 }
 
 export default Help;

@@ -4,6 +4,7 @@ import './app-default.scss';
 import './app-puzzlepal.scss';
 import games from 'games/games.json';
 import GameSelector from './GameSelector';
+import Help from 'components/Help';
 
 const App = () => {
   const [gameIndex, setGameIndex] = useState(0)
