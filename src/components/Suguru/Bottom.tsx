@@ -21,7 +21,7 @@ const Bottom = (props: Props) => {
       if (!wrongCount) playWin();
       else playPlop();
     }
-  }, [checking, playWin, wrongCount]);
+  }, [checking, playPlop, playWin, wrongCount]);
 
   if (checking) {
     return (
