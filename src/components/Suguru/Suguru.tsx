@@ -1,10 +1,11 @@
 import React, { forwardRef, useEffect, useState } from "react";
+import confetti from 'canvas-confetti';
 import useSound from 'use-sound';
-import './suguru-puzzlepal.scss';
-import './suguru-default.scss';
 import Bottom from "./Bottom";
 import useKey from "@rooks/use-key";
 import Board from "./Board";
+import './suguru-puzzlepal.scss';
+import './suguru-default.scss';
 
 interface Props {
   size: number[];
@@ -87,6 +88,7 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
   }, []);
 
   useKey(["1", "2", "3", "4", "5", "6", "7", "8", "9"], (a) => {
+    // Keyboard control
     if (activeCell === undefined) return;
     const number = parseInt(a.key);
     if (number <= maxNumber) {
@@ -100,6 +102,13 @@ const Suguru = forwardRef<HTMLDivElement, Props>((props, ref) => {
     }
     return acc;
   }, []);
+
+
+  useEffect(() => {
+    if (checking && wrongCells.length === 0){
+      confetti();
+    }
+  }, [checking, wrongCells.length]);
 
   return (
     <div className="suguru" ref={ref}>
