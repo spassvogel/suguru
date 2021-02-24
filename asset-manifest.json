@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/suguru/static/css/main.17818950.chunk.css",
-    "main.js": "/suguru/static/js/main.5134e60e.chunk.js",
-    "main.js.map": "/suguru/static/js/main.5134e60e.chunk.js.map",
-    "runtime-main.js": "/suguru/static/js/runtime-main.920f9205.js",
-    "runtime-main.js.map": "/suguru/static/js/runtime-main.920f9205.js.map",
-    "static/js/2.9d0cadf0.chunk.js": "/suguru/static/js/2.9d0cadf0.chunk.js",
-    "static/js/2.9d0cadf0.chunk.js.map": "/suguru/static/js/2.9d0cadf0.chunk.js.map",
-    "static/js/3.79ce0c64.chunk.js": "/suguru/static/js/3.79ce0c64.chunk.js",
-    "static/js/3.79ce0c64.chunk.js.map": "/suguru/static/js/3.79ce0c64.chunk.js.map",
-    "static/js/4.93a5d324.chunk.js": "/suguru/static/js/4.93a5d324.chunk.js",
-    "static/js/4.93a5d324.chunk.js.map": "/suguru/static/js/4.93a5d324.chunk.js.map",
+    "main.js": "/suguru/static/js/main.1b9d9811.chunk.js",
+    "main.js.map": "/suguru/static/js/main.1b9d9811.chunk.js.map",
+    "runtime-main.js": "/suguru/static/js/runtime-main.6bf75c92.js",
+    "runtime-main.js.map": "/suguru/static/js/runtime-main.6bf75c92.js.map",
+    "static/js/2.d4b2c010.chunk.js": "/suguru/static/js/2.d4b2c010.chunk.js",
+    "static/js/2.d4b2c010.chunk.js.map": "/suguru/static/js/2.d4b2c010.chunk.js.map",
+    "static/js/3.86997f31.chunk.js": "/suguru/static/js/3.86997f31.chunk.js",
+    "static/js/3.86997f31.chunk.js.map": "/suguru/static/js/3.86997f31.chunk.js.map",
+    "static/js/4.2f300366.chunk.js": "/suguru/static/js/4.2f300366.chunk.js",
+    "static/js/4.2f300366.chunk.js.map": "/suguru/static/js/4.2f300366.chunk.js.map",
     "index.html": "/suguru/index.html",
     "static/css/main.17818950.chunk.css.map": "/suguru/static/css/main.17818950.chunk.css.map",
-    "static/js/2.9d0cadf0.chunk.js.LICENSE.txt": "/suguru/static/js/2.9d0cadf0.chunk.js.LICENSE.txt",
-    "static/js/3.79ce0c64.chunk.js.LICENSE.txt": "/suguru/static/js/3.79ce0c64.chunk.js.LICENSE.txt",
+    "static/js/2.d4b2c010.chunk.js.LICENSE.txt": "/suguru/static/js/2.d4b2c010.chunk.js.LICENSE.txt",
+    "static/js/3.86997f31.chunk.js.LICENSE.txt": "/suguru/static/js/3.86997f31.chunk.js.LICENSE.txt",
     "static/media/wrong.ba77eaf8.svg": "/suguru/static/media/wrong.ba77eaf8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.920f9205.js",
-    "static/js/2.9d0cadf0.chunk.js",
+    "static/js/runtime-main.6bf75c92.js",
+    "static/js/2.d4b2c010.chunk.js",
     "static/css/main.17818950.chunk.css",
-    "static/js/main.5134e60e.chunk.js"
+    "static/js/main.1b9d9811.chunk.js"
   ]
 }
